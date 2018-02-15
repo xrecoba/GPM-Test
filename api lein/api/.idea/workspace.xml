@@ -10,12 +10,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="core.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/api/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="42" column="54" lean-forward="false" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+            <state relative-caret-position="85">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -34,8 +34,8 @@
       <file leaf-file-name="project.clj" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="50" lean-forward="false" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -73,9 +73,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -111,7 +111,7 @@
       </pane>
     </panes>
   </component>
-  <component name="ReplState" timestamp="1518563131826">{:repl-history {:ide [], :local [{:command &quot;hola&quot;, :offset 4, :ns &quot;api.core&quot;} {:command &quot;(use '[ring.adapter.jetty :only (run-jetty)])&quot;, :offset 45, :ns &quot;api.core&quot;} {:command &quot;(defn app                                                   [{:keys [uri]}]  {:body (format \&quot;You requested %s\&quot; uri)})&quot;, :offset 117, :ns &quot;api.core&quot;} {:command &quot;(def server (run-jetty #'app {:port 8080 :join? false}))&quot;, :offset 56, :ns &quot;api.core&quot;}], :remote []}}</component>
+  <component name="ReplState" timestamp="1518646474983">{:repl-history {:ide [], :local [{:command &quot;lein deps&quot;, :offset 9, :ns &quot;api.core&quot;} {:command &quot;((defn file-or-folder\n   \&quot;docstring\&quot;\n   [path]\n   (str \&quot;hello\&quot;)\n   ))&quot;, :offset 69, :ns &quot;api.core&quot;} {:command &quot;(defn greet  [name]  (str \&quot;Hello, \&quot; name) )&quot;, :offset 43, :ns &quot;api.core&quot;} {:command &quot;(greet \&quot;me\&quot;) &quot;, :offset 12, :ns &quot;api.core&quot;} {:command &quot;(defn fileOrFolder [path] (str \&quot;Hello, \&quot; name))&quot;, :offset 47, :ns &quot;api.core&quot;} {:command &quot;(fileOrFolder \&quot;c:/ToDelete\&quot;)&quot;, :offset 28, :ns &quot;api.core&quot;} {:command &quot;(fileOrFolder \&quot;\&quot;)&quot;, :offset 17, :ns &quot;api.core&quot;} {:command &quot;(fileOrFolder)&quot;, :offset 14, :ns &quot;api.core&quot;} {:command &quot;(greet \&quot;C:/ToDelete\&quot;) &quot;, :offset 21, :ns &quot;api.core&quot;} {:command &quot;(defn fileOrFolder [pathaa] (str \&quot;Hello, \&quot; name))&quot;, :offset 49, :ns &quot;api.core&quot;} {:command &quot;(defn fileOrFolder [path] (str \&quot;Hello, \&quot; path) )&quot;, :offset 48, :ns &quot;api.core&quot;} {:command &quot;(fileOrFolder \&quot;ToDelete\&quot;)&quot;, :offset 25, :ns &quot;api.core&quot;} {:command &quot;(:require [clojure.java.io :as io])&quot;, :offset 35, :ns &quot;api.core&quot;} {:command &quot;(require '[clojure.java.io :as io] )&quot;, :offset 36, :ns &quot;api.core&quot;} {:command &quot;(class (io/as-file \&quot;.\&quot;))&quot;, :offset 24, :ns &quot;api.core&quot;} {:command &quot;(defn isFile [path]\n  (\n    (.exists (io/as-file path))\n    ))&quot;, :offset 62, :ns &quot;api.core&quot;} {:command &quot;(isFile \&quot;c:/ToDelete/960_es-trabajo-en-equipo-m.jpg\&quot;)&quot;, :offset 53, :ns &quot;api.core&quot;} {:command &quot;(.exists (clojure.java.io/as-file \&quot;c:/ToDelete/Agencia.jpg\&quot;)&quot;, :offset 60, :ns &quot;api.core&quot;} {:command &quot;(.exists (clojure.java.io/as-file %))&quot;, :offset 37, :ns &quot;api.core&quot;} {:command &quot;(.exists (clojure.java.io/as-file \&quot;c:/ToDelete/Agencia.jpg\&quot;))&quot;, :offset 61, :ns &quot;api.core&quot;} {:command &quot;(.exists (clojure.java.io/as-file \&quot;c:/ToDelete/Agencia2.jpg\&quot;))&quot;, :offset 62, :ns &quot;api.core&quot;} {:command &quot;(defn isFile [path]\n  (\n    (.exists (io/as-file path))))&quot;, :offset 57, :ns &quot;api.core&quot;} {:command &quot;(defn isFile [path]\n  (.exists (io/as-file path)))&quot;, :offset 50, :ns &quot;api.core&quot;} {:command &quot;(isFile \&quot;c:/ToDelete/Agencia.jpg\&quot;)&quot;, :offset 34, :ns &quot;api.core&quot;} {:command &quot;(.isDirectory (io/file \&quot;c:/ToDelete\&quot;))&quot;, :offset 38, :ns &quot;api.core&quot;} {:command &quot;(.listFiles (io/file \&quot;c:/ToDelete\&quot;))&quot;, :offset 36, :ns &quot;api.core&quot;} {:command &quot;(.list (io/file \&quot;c:/ToDelete\&quot;))[0]&quot;, :offset 34, :ns &quot;api.core&quot;} {:command &quot;(first(.list (io/file \&quot;c:/ToDelete\&quot;)))&quot;, :offset 38, :ns &quot;api.core&quot;} {:command &quot;(reduce (.list (io/file \&quot;c:/ToDelete\&quot;)) )&quot;, :offset 41, :ns &quot;api.core&quot;} {:command &quot;(reduce + (.list (io/file \&quot;c:/ToDelete\&quot;)) )&quot;, :offset 43, :ns &quot;api.core&quot;} {:command &quot;(reduce  str (.list (io/file \&quot;c:/ToDelete\&quot;)) )&quot;, :offset 8} {:command &quot;(reduce str (.list (io/file \&quot;c:/ToDelete\&quot;)) )&quot;, :offset 45, :ns &quot;api.core&quot;} {:command &quot;(io/file \&quot;c:/ToDelete\&quot;)&quot;, :offset 23, :ns &quot;api.core&quot;} {:command &quot;require [clojure.data.json :as json]&quot;, :offset 36, :ns &quot;api.core&quot;} {:command &quot;require [clojure.java.io :as io]&quot;, :offset 32, :ns &quot;api.core&quot;} {:command &quot;hola&quot;, :offset 4, :ns &quot;api.core&quot;} {:command &quot;(use '[ring.adapter.jetty :only (run-jetty)])&quot;, :offset 45, :ns &quot;api.core&quot;} {:command &quot;(defn app                                                   [{:keys [uri]}]  {:body (format \&quot;You requested %s\&quot; uri)})&quot;, :offset 117, :ns &quot;api.core&quot;} {:command &quot;(def server (run-jetty #'app {:port 8080 :join? false}))&quot;, :offset 56, :ns &quot;api.core&quot;} {:command &quot;(require '[clojure.java.io :as io])&quot;, :offset 35, :ns &quot;api.core&quot;} {:command &quot;(require '[clojure.data.json :as json])&quot;, :offset 39, :ns &quot;api.core&quot;} {:command &quot;(reduce str (.list (io/file \&quot;c:/ToDelete\&quot;)))&quot;, :offset 44, :ns &quot;api.core&quot;} {:command &quot;(reduce str (.list (io/file \&quot;c:\n/ToDelete\&quot;)))&quot;, :offset 45, :ns &quot;api.core&quot;} {:command &quot;(.list (io/file \&quot;c:/ToDelete\&quot;))&quot;, :offset 31, :ns &quot;api.core&quot;} {:command &quot;(json/write-str (.list (io/file \&quot;c:/ToDelete\&quot;)))&quot;, :offset 48, :ns &quot;api.core&quot;} {:command &quot;(defn enrich [path]\n  (if isFile path\n             \&quot;yes\&quot;\n             \&quot;no\&quot;)\n  )&quot;, :offset 79, :ns &quot;api.core&quot;} {:command &quot;; Works\n(defn isFile [path]\n  (.exists (io/as-file path)))&quot;, :offset 58, :ns &quot;api.core&quot;} {:command &quot;(defn enrich [path]\n  (if (isFile path)\n    \&quot;yes\&quot;\n    \&quot;no\&quot;)\n  )&quot;, :offset 63, :ns &quot;api.core&quot;} {:command &quot;(defn enrich [path]\n  (if (isFile path)\n    {:path path\n     :type \&quot;file\&quot;}\n    \&quot;no\&quot;)\n  )&quot;, :offset 88, :ns &quot;api.core&quot;} {:command &quot;(defn enrich [path]\n  (if (isFile path)\n    {:path path\n     :type \&quot;file\&quot;}\n    {:path path\n     :type \&quot;folder\&quot;})\n  )&quot;, :offset 116, :ns &quot;api.core&quot;} {:command &quot;(enrich \&quot;c:/ToDelete/Agencia.jpg\&quot;)&quot;, :offset 34, :ns &quot;api.core&quot;} {:command &quot;(enrich \&quot;c:/ToDelete/Agencia.fjpg\&quot;)&quot;, :offset 35, :ns &quot;api.core&quot;} {:command &quot;(map enrich (.list (io/file \&quot;c:/ToDelete\&quot;)))&quot;, :offset 44, :ns &quot;api.core&quot;} {:command &quot;(map enrich (.list (io/file \&quot;c:gg\&quot;)))&quot;, :offset 37, :ns &quot;api.core&quot;} {:command &quot;(map enrich (.list (io/file \&quot;c:\&quot;)))&quot;, :offset 35, :ns &quot;api.core&quot;} {:command &quot; (json/write-str (map enrich (.list (io/file \&quot;c:\&quot;)))) &quot;, :offset 53, :ns &quot;api.core&quot;}], :remote []}}</component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -260,22 +260,22 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="REPL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3997879" sideWeight="0.5072917" order="11" side_tool="true" content_ui="tabs" x="628" y="394" width="633" height="298" />
+      <window_info id="REPL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997879" sideWeight="0.509375" order="11" side_tool="true" content_ui="tabs" x="628" y="394" width="633" height="298" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36161187" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.49335548" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3997879" sideWeight="0.49270833" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997879" sideWeight="0.490625" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -287,6 +287,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/api/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/api/core_test.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -303,10 +311,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="50" lean-forward="false" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/api/core_test.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="42" column="54" lean-forward="false" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
