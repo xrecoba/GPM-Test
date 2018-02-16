@@ -23,6 +23,7 @@ export class FiletreeComponent implements OnInit {
 	}
 
   getNodes(): void {
-    this.nodes = this.nodeService.getNodes();
+    this.nodeService.getNodes()
+      .subscribe(nodes => this.nodes = nodes);    
   }
 }
