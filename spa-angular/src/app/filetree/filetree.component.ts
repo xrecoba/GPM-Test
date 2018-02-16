@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Node } from '../node';
 
 @Component({
   selector: 'app-filetree',
@@ -11,7 +12,22 @@ export class FiletreeComponent implements OnInit {
 
   ngOnInit() {
   }
+	
+  selectedNode: Node;
 
-  hero = 'Windstorm';
+	onSelect(node: Node): void {
+  		this.selectedNode = node;
+	}
+
+
+  node: Node = {
+  	path: "c:/Test/",
+  	name: "file.txt",
+  	type: "file",
+  	elements: [
+  		{ path: "c:/Test/Hello/", name: "name.txt", type: "file" }
+  		{ path: "c:/Test/Hello/", name: "familyName.txt", type: "file" }
+  		];
+  }
 
 }
