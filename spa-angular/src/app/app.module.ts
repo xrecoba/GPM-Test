@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FiletreeComponent } from './filetree/filetree.component';
+import { NodeService } from './node.service';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { FiletreeComponent } from './filetree/filetree.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [NodeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

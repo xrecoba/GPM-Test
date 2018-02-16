@@ -1,8 +1,8 @@
-{{node.path}}{{node.name}}
-
 <h2>Elements</h2>
 <ul>
-  <li *ngFor="let node of node.elements"  (click)="onSelect(node)">
+  <li *ngFor="let node of nodes"  
+  		[class.selected]="node === selectedNode"
+  		(click)="onSelect(node)">
     <span>{{node.path}}</span> {{node.name}}
   </li>
 </ul>

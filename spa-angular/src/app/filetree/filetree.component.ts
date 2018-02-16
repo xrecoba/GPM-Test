@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Node } from '../node';
+import { NodeService } from '../node.service';
 
 @Component({
   selector: 'app-filetree',
@@ -8,26 +9,20 @@ import { Node } from '../node';
 })
 export class FiletreeComponent implements OnInit {
 
-  constructor() { }
+  nodes : Node[];  
+  selectedNode: Node;
+
+  constructor(private nodeService: NodeService) { }
 
   ngOnInit() {
+    this.getNodes();
   }
-	
-  selectedNode: Node;
 
 	onSelect(node: Node): void {
   		this.selectedNode = node;
 	}
 
-
-  node: Node = {
-  	path: "c:/Test/",
-  	name: "file.txt",
-  	type: "file",
-  	elements: [
-  		{ path: "c:/Test/Hello/", name: "name.txt", type: "file" }
-  		{ path: "c:/Test/Hello/", name: "familyName.txt", type: "file" }
-  		];
+  getNodes(): void {
+    this.nodes = this.nodeService.getNodes();
   }
-
 }
