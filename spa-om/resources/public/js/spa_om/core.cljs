@@ -15,5 +15,8 @@
 (def hello (om/factory HelloWorld))
 
 (js/ReactDOM.render
-  (hello {:title "Hello, world!"})
+  (apply dom/div nil
+    (map #(hello {:react-key %
+                  :title (str "Hello number " %)})
+      (range 6)))
   (gdom/getElement "app"))
