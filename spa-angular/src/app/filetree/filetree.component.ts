@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Node } from '../node';
+import { Node } from '../../node';
 import { NodeService } from '../node.service';
 
 @Component({
