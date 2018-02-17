@@ -4,10 +4,15 @@
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [clojure.java.io :as io]
             [ring.middleware.json :refer [wrap-json-response]]
-            [ring.util.response :refer [response]]))
+            [ring.util.response :refer [response]]
+            [ring.middleware.cors :refer [wrap-cors]]))
 
 (defn isFile [path]
   (.exists (io/as-file path)))
+
+;; accept everything
+;;(wrap-cors routes #".*")
+;;(wrap-cors routes identity)
 
 (defn enrich [path]
   (if (isFile path)
@@ -33,5 +38,8 @@
            (route/not-found "Not Found"))
 
 (def app
-  (wrap-defaults app-routes site-defaults))
+  (-> (wrap-defaults app-routes site-defaults)
+      (wrap-cors :access-control-allow-origin #"http://localhost:4200"
+                 :access-control-allow-methods [:get]
+                 :access-control-allow-headers ["Content-Type"])))
 
