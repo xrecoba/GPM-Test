@@ -1,0 +1,23 @@
+[0mCompiling "resources/public/js/main.js" from ["src"]...
+Compiling src\spa-om\core.cljs
+notifying browser that file changed:  resources/public/js/goog/deps.js
+notifying browser that file changed:  resources/public/js/cljs_deps.js
+notifying browser that file changed:  out\spa_om\core.js
+[32mSuccessfully compiled "resources/public/js/main.js" in 0.611 seconds.[0m
+[0mCompiling "resources/public/js/main.js" from ["src"]...
+Compiling src\spa-om\core.cljs
+Compiling target\figwheel_temp\dev\figwheel\connect.cljs
+notifying browser that file changed:  resources/public/js/goog/deps.js
+notifying browser that file changed:  resources/public/js/cljs_deps.js
+notifying browser that file changed:  out\spa_om\core.js
+[32mSuccessfully compiled "resources/public/js/main.js" in 0.759 seconds.[0m
+[0mCompiling "resources/public/js/main.js" from ["src"]...
+Compiling src\spa-om\core.cljs
+Compiling target\figwheel_temp\dev\figwheel\connect.cljs
+notifying browser that file changed:  out\spa_om\core.js
+[32mSuccessfully compiled "resources/public/js/main.js" in 0.567 seconds.[0m
+[0mCompiling "resources/public/js/main.js" from ["src"]...
+Compiling src\spa-om\core.cljs
+Compiling target\figwheel_temp\dev\figwheel\connect.cljs
+notifying browser that file changed:  out\spa_om\core.js
+[32mSuccessfully compiled "resources/public/js/main.js" in 0.635 seconds.[0m
