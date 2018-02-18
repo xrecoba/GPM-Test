@@ -7,7 +7,7 @@
 ;; Views
 
 (defn home-page []
-  [:div [:h2 "Welcome to spa-reagent"]
+  [:div [:h2 "Welcome to spa-reagent by Xavi"]
    [:div [:a {:href "/about"} "go to about page"]]])
 
 (defn about-page []
