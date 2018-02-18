@@ -22,16 +22,23 @@ export class FiletreeComponent implements OnInit {
 
 	onSelect(node: Node): void {
       this.selectedNode = node;
-      node.isExpanded = !node.isExpanded;
-
-      if (node.isExpanded) {
-        this.getChildNodes(node);
-      }  		
 	}
+
+  toogle(node: Node): void {
+    node.isExpanded = !node.isExpanded;
+    if (node.isExpanded) {
+        this.getChildNodes(node);
+      }
+  }
 
   getNodes(): void {
     this.nodeService.getNodes("dir")
-      .subscribe(nodes => this.nodes = nodes);    
+      .subscribe(nodes => {         
+         for (let n of nodes) {
+           n.isExpanded = false;
+          }
+          this.nodes = nodes;
+       });    
   }
 
   getChildNodes(node: Node): void {

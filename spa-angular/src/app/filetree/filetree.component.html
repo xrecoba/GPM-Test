@@ -1,12 +1,14 @@
-<h2>Elements</h2>
 <ul>
   <li *ngFor="let node of nodes"  
-  		[class.selected]="node === selectedNode"
-  		(click)="onSelect(node)">
-    
+  		[class.selected]="node === selectedNode">
+      
+    <button (click)="toogle(node)">      
+      {{node.isExpanded === true ? "Collapse" : "Expand"}}      
+    </button>
+
     <span>{{node.path}}</span> {{node.name}}
       <div *ngIf=node.isExpanded>
-          {{selectedNode.name}}
+          {{node.name}}
           <app-filetree path="dir"></app-filetree>
       </div>
   </li>
