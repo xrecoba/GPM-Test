@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Node } from '../../node';
+import { NodeService } from '../node.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-file-preview',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilePreviewComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  @Input() filePreviewUrl: string;
+  filePreview: File;
+  subscription: Subscription;
+
+  constructor(private nodeService: NodeService) { 
+   this.subscription = nodeService.fileToPreview$.subscribe(
+      file => {                        
+        this.getPreview(file);
+    })
   }
 
+  ngOnInit() {
+    this.getPreview(this.filePreviewUrl);
+  }
+
+  getPreview(file :string): void {
+    this.nodeService.getFilePreview(file)
+      .subscribe(filePreview => {         
+         this.filePreview = filePreview;
+       });    
+  }
+
+  closePreview(): void{
+    this.filePreview = null;
+  }
 }

@@ -14,7 +14,7 @@ export class AppComponent {
 
   constructor(private nodeService: NodeService) {
     this.subscription = nodeService.fileToPreview$.subscribe(
-      file => {
+      file => {        
         this.previewFile = file;           
     });
   }  

@@ -1,3 +1,7 @@
-<p>
-  file-preview works!
-</p>
+<div *ngIf=filePreview>
+  <button (click)=closePreview()>Close</button>
+  <p>  
+    {{filePreview.content}}  
+  </p>  
+</div>
+
