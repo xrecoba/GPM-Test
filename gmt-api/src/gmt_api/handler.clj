@@ -9,7 +9,9 @@
             [ring.middleware.cors :refer [wrap-cors]]))
 
 (defn ToFileInfo [file]
-  (select-keys (bean file) [:path :name :directory]))
+  (let [fileMap (bean file)]
+    (assoc (select-keys fileMap [:path :name :directory])
+      :previewUrl (str "http://localhost:3000/preview?path=" (get fileMap :path)) )))
 
 (defn GetFiles [path]
     (map ToFileInfo (.listFiles (io/file path)))
