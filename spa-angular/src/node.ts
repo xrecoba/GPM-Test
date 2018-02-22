@@ -1,7 +1,7 @@
 export class Node {
   path: string;  
   name: string;
-  type: string;
+  directory: boolean;
   elements: Node[];
   isExpanded: boolean;
 

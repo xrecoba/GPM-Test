@@ -2,14 +2,17 @@
   <li *ngFor="let node of nodes"  
   		[class.selected]="node === selectedNode">
       
-    <button (click)="toogle(node)">      
-      {{node.isExpanded === true ? "Collapse" : "Expand"}}      
+    <button (click)="toogle(node)" *ngIf=node.directory>
+      {{node.isExpanded === true ? "Collapse" : "Expand"}}
     </button>
 
-    <span>{{node.path}}</span> {{node.name}}
-      <div *ngIf=node.isExpanded>
-          {{node.name}}
-          <app-filetree path="dir"></app-filetree>
-      </div>
+    <span>{{node.name}}</span>
+    <button (click)="preview(node)" *ngIf=node.previewUrl>
+      Preview
+    </button>
+    
+    <div *ngIf=node.isExpanded>          
+        <app-filetree path={{node.path}}></app-filetree>
+    </div>
   </li>
 </ul>
