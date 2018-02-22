@@ -19,9 +19,9 @@
   (.println java.lang.System/out path)
   (.println java.lang.System/out (type path))
 
-  ;(response (map ToFileInfo (.listFiles (io/file path))))
+  (map ToFileInfo (.listFiles (io/file path)))
   ;(response  (+ 1 1))
-  (response (str "Hello user "))
+  ;(response (str "Hello user "))
   )
 
 (defn getFileLines [n filename]
@@ -39,11 +39,13 @@
 
            ;(GET "/:id" [u :uri]  (wrap-json-response  (GetFilesWithParam u) ))
            (GET "/dirOld" [] (wrap-json-response GetFiles))
+           (GET "/dir" [path] (wrap-json-response (GetFilesWithParam path)))
+           (GET "/dirNew" [path] (wrap-json-response (fn [_] (response {:id path :message "hello2"}))))
+           (GET "/dirNew2" [path] (wrap-json-response (fn [_] (response (GetFilesWithParam path)))))
 
            (GET "/HelloWorld" [path]  (str "Hello World" path)) ;Works
            ;(GET "/dir" [] (wrap-json-response GetFiles))
-           (route/not-found "Not Found Yes")
- )
+           (route/not-found "Not Found Yes"))
 
 
 (def app
