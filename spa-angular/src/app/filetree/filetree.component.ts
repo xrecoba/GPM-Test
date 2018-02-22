@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Node } from '../../node';
 import { NodeService } from '../node.service';
 
@@ -10,14 +10,15 @@ import { NodeService } from '../node.service';
 
 export class FiletreeComponent implements OnInit {
 
-  @Input() path: string;
+  @Input() path: string;  
+
   nodes : Node[];  
-  selectedNode: Node;
+  selectedNode: Node;    
 
   constructor(private nodeService: NodeService) { }
 
   ngOnInit() {
-    this.getNodes();
+    this.getNodes();    
   }
 
 	onSelect(node: Node): void {
@@ -44,5 +45,9 @@ export class FiletreeComponent implements OnInit {
   getChildNodes(node: Node): void {
     this.nodeService.getNodes(this.path)
       .subscribe(nodes => node.elements = nodes);    
+  }
+ 
+  previewFile (node: Node): void {          
+    this.nodeService.announceFileToPreview(node.previewUrl);      
   }
 }
