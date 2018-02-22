@@ -12,7 +12,7 @@ export class NodeService {
   private nodesApiUrl = 'http://localhost:3000/';  // URL to web api
 
   getNodes(path: string): Observable<Node[]> {
-     return this.http.get<Node[]>(this.nodesApiUrl + path)
+     return this.http.get<Node[]>(this.nodesApiUrl + "dir?path=" + path)
   }
 
   getNodeChilds(path: string): Observable<Node[]> {

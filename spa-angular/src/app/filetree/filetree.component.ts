@@ -32,7 +32,7 @@ export class FiletreeComponent implements OnInit {
   }
 
   getNodes(): void {
-    this.nodeService.getNodes("dir")
+    this.nodeService.getNodes(this.path)
       .subscribe(nodes => {         
          for (let n of nodes) {
            n.isExpanded = false;
@@ -42,7 +42,7 @@ export class FiletreeComponent implements OnInit {
   }
 
   getChildNodes(node: Node): void {
-    this.nodeService.getNodes("dir")
+    this.nodeService.getNodes(this.path)
       .subscribe(nodes => node.elements = nodes);    
   }
 }
