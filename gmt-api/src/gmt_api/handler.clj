@@ -1,6 +1,7 @@
 (ns gmt-api.handler
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
+            [clojure.string :refer [ends-with?]]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [clojure.java.io :as io]
             [ring.middleware.json :refer [wrap-json-response]]
@@ -8,10 +9,17 @@
             [ring.util.response :refer [response]]
             [ring.middleware.cors :refer [wrap-cors]]))
 
+(defn fileIsPreviewable [fileMap]
+  (ends-with? (get fileMap :name) ".txt")
+ )
+
 (defn ToFileInfo [file]
   (let [fileMap (bean file)]
-    (assoc (select-keys fileMap [:path :name :directory])
-      :previewUrl (str "http://localhost:3000/preview?path=" (get fileMap :path)) )))
+    (if (fileIsPreviewable fileMap)
+      (assoc (select-keys fileMap [:path :name :directory])
+        :previewUrl (str "http://localhost:3000/preview?path=" (get fileMap :path)))
+      (select-keys fileMap [:path :name :directory]))))
+
 
 (defn GetFiles [path]
     (map ToFileInfo (.listFiles (io/file path)))
