@@ -26,4 +26,8 @@ export class NodeService {
   getNodeChilds(path: string): Observable<Node[]> {
      return this.http.get<Node[]>(this.nodesApiUrl + path)
   }
+
+  getFilePreview(url: string): Observable<File> {
+     return this.http.get<File>(url)
+  }
 }

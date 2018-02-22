@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Node } from '../../node';
+import { NodeService } from '../node.service';
 
 @Component({
   selector: 'app-file-preview',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilePreviewComponent implements OnInit {
 
-  constructor() { }
+  @Input() filePreviewUrl: string;
+  filePreview: File;
+
+  constructor(private nodeService: NodeService) { }
 
   ngOnInit() {
+    this.getPreview();
   }
 
+  getPreview(): void {
+    this.nodeService.getFilePreview(this.filePreviewUrl)
+      .subscribe(filePreview => {         
+         this.filePreview = filePreview;
+       });    
+  }
+
+  closePreview(): void{
+    this.filePreview = null;
+  }
 }
