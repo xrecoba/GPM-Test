@@ -6,6 +6,7 @@
                  [compojure "1.5.1"]
                  [ring/ring-defaults "0.2.1"]
                  [ring/ring-json "0.4.0"]
+                 [ring-json-response "0.2.0"]
                  [jumblerg/ring.middleware.cors "1.0.1"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler gmt-api.handler/app}
