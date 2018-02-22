@@ -4,6 +4,7 @@ export class Node {
   directory: boolean;
   elements: Node[];
   isExpanded: boolean;
+  previewUrl: string;
 
   constructor() {
         this.isExpanded = false;
