@@ -10,7 +10,7 @@ import { NodeService } from '../node.service';
 
 export class FiletreeComponent implements OnInit {
 
-  @Input() path: string;  
+  @Input() dirUrl: string;
 
   nodes : Node[];  
   selectedNode: Node;    
@@ -33,7 +33,7 @@ export class FiletreeComponent implements OnInit {
   }
 
   getNodes(): void {
-    this.nodeService.getNodes(this.path)
+    this.nodeService.getNodes(this.dirUrl)
       .subscribe(nodes => {         
          for (let n of nodes) {
            n.isExpanded = false;
@@ -43,7 +43,7 @@ export class FiletreeComponent implements OnInit {
   }
 
   getChildNodes(node: Node): void {
-    this.nodeService.getNodes(this.path)
+    this.nodeService.getNodes(this.dirUrl)
       .subscribe(nodes => node.elements = nodes);    
   }
  

@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 {{previewFile}}
 <div class="row">
-  <div class="column"> <app-filetree path="c:/" (onPreview)="receiveMessage($event)"> </app-filetree> </div>
+  <div class="column"> <app-filetree dirUrl="http://localhost:3000/dir?path=c:/" (onPreview)="receiveMessage($event)"> </app-filetree> </div>
   <div class="column" *ngIf=previewFile>
     <app-file-preview filePreviewUrl={{previewFile}}></app-file-preview>
   </div>
