@@ -14,12 +14,16 @@
  )
 
 (defn ToFileInfo [file]
-  (let [fileMap (bean file)]
-    (if (fileIsPreviewable fileMap)
-      (assoc (select-keys fileMap [:path :name :directory])
-        :previewUrl (str "http://localhost:3000/preview?path=" (get fileMap :path)))
-      (select-keys fileMap [:path :name :directory]))))
-
+  (let [fileMap (bean file)
+        filePath (get fileMap :path)
+        commonData (select-keys fileMap [:path :name :directory])]
+    (cond
+      (fileIsPreviewable fileMap)
+        (assoc commonData :previewUrl (str "http://localhost:3000/preview?path=" filePath))
+      (.isDirectory file)
+        (assoc commonData :dirUrl (str "http://localhost:3000/dir?path=" filePath))
+      :else commonData
+      )))
 
 (defn GetFiles [path]
     (map ToFileInfo (.listFiles (io/file path)))

@@ -10,8 +10,6 @@ export class NodeService {
 
   constructor(private http: HttpClient) { }
 
-  private nodesApiUrl = 'http://localhost:3000/';  // URL to web api
-
   private fileToPreviewSource = new Subject<string>();
   fileToPreview$ = this.fileToPreviewSource.asObservable();
 
@@ -19,13 +17,9 @@ export class NodeService {
     this.fileToPreviewSource.next(fileToPreview);
   }
 
-  getNodes(path: string): Observable<Node[]> {
-     return this.http.get<Node[]>(this.nodesApiUrl + "dir?path=" + path)
-  }
-
-  getNodeChilds(path: string): Observable<Node[]> {
-     return this.http.get<Node[]>(this.nodesApiUrl + path)
-  }
+  getNodes(dirUrl: string): Observable<Node[]> {
+     return this.http.get<Node[]>(dirUrl)
+  }  
 
   getFilePreview(url: string): Observable<File> {
      return this.http.get<File>(url)
