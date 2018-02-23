@@ -1,9 +1,23 @@
-<h1>{{title}}</h1>
-{{previewFile}}
-<div class="row">
-  <div class="column"> <app-filetree dirUrl="http://localhost:3000/dir?path=c:/" (onPreview)="receiveMessage($event)"> </app-filetree> </div>
-  <div class="column" *ngIf=previewFile>
-    <app-file-preview filePreviewUrl={{previewFile}}></app-file-preview>
+<h1>GMT file explorer</h1>
+<div *ngIf=!rootNodeIsSet>
+  <label>Root folder
+    <input [(ngModel)]="rootNode">
+    <button (click)="setRootNode()">
+      Start
+    </button>
+  </label>
+</div>
+
+<div *ngIf=rootNodeIsSet>
+  <label>Root node "{{rootNode}}"</label>
+</div>
+
+<div *ngIf=rootNodeIsSet>      
+  <div class="row">
+    <div class="column"> <app-filetree dirUrl={{rootUrl}} (onPreview)="receiveMessage($event)"> </app-filetree> </div>
+    <div class="column" *ngIf=previewFile>
+      <app-file-preview filePreviewUrl={{previewFile}}></app-file-preview>
+    </div>
   </div>
 </div>
 
