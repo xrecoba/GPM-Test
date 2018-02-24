@@ -9,6 +9,8 @@ Features:
 * Text files can be previewed by clicking on them
 * Multiple instances of the application can be executed at the same time using different root node folders
 
+![app screenshot][https://github.com/xrecoba/GPM-Test/blob/master/Resources/AppScreenshot.jpg]
+
 ## How to run the application
 Checkout repository and execute, in two different consoles:
 ```
@@ -25,7 +27,9 @@ stock-sync-app\stock-sync\Stock.Sync.Tests.Unit>dotnet test
 > It would have been nice to gift-wrap the application inside a docker container so you could just run it with a single command no matter the OS and system. Sorry I was short on time.
 
 ## Known bugs
-Some folders do not return dir info although we display them in the folder list ("Archivos de programa", hidden folders, ...)
+* Some folders do not return dir info although we display them in the folder list ("Archivos de programa", hidden folders, ...)
+* Button to expand a folders appears even when folder is empty. Same happens for collapsing.
+* File preview contents are concatenated.
 
 # Assumptions
 * I've considered _*.txt_ files as the leaf nodes respresenting text files
