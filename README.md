@@ -9,7 +9,7 @@ Features:
 * Text files can be previewed by clicking on them
 * Multiple instances of the application can be executed at the same time using different root node folders
 
-![app screenshot][https://github.com/xrecoba/GPM-Test/blob/master/Resources/AppScreenshot.jpg]
+![Scheme][Resources/AppScreenshot.jpg]
 
 ## How to run the application
 Checkout repository and execute, in two different consoles:
