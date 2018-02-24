@@ -1,6 +1,6 @@
-# *SPA* to display a file tree.
+# *SPA* to display a file tree
 ## Intro
-This repository contains a web application to explore the local file system. It is composed implemented with an Angular SPA that talks to a Clojure backend.
+This repository contains a web application to explore the local file system. It is implemented with an Angular SPA that talks to a Clojure backend.
 
 Features:
 * Root node is specified by client
@@ -17,43 +17,38 @@ GPM-Test\spa-angular>ng serve --open
 ```
 Once both angular and clojure servers are running, open http://localhost:4200/.
 
-To run the unit and integration tests, you should run this command:
-```
-stock-sync-app\stock-sync\Stock.Sync.Tests.Unit>dotnet test
-```
-
 > It would have been nice to gift-wrap the application inside a docker container so you could just run it with a single command no matter the OS and system. Sorry I was short on time.
 
 ## Known bugs
-* Some folders do not return dir info although we display them in the folder list ("Archivos de programa", hidden folders, ...)
-* Button to expand a folders appears even when folder is empty. Same happens for collapsing.
-* File preview contents are concatenated.
+* Some folders do not return dir info although I display them in the folder list ("Archivos de programa", hidden folders, ...)
+* Button to expand a folder appears even when folder is empty. Same happens for collapsing button.
+* File preview concatenates all file lines.
 
 # Assumptions
-* I've considered _*.txt_ files as the leaf nodes respresenting text files
+* I've considered _*.txt_ files as the leaf nodes representing text files
 * I've considered the first ten lines of a file as its preview
   * If a file has less or 10 lines, then the whole file is shown
   * There's no UI visual cue indicating if a file is fully displayed or previewed
 
 # Code structure
-The repository is pretty simple, it has 2 main folders, one for the Angular SPA client and the otherfor the Clojure API.
+The repository is pretty simple, it has 2 main folders, one for the Angular SPA client and the other for the Clojure API.
 
 # Design choices
-I firmly believe in keeping thins as simple as possible, so I speak about a lot of possibilities here that I would include in the final implementation only once it is proven they are necessary.
+I firmly believe in keeping things as simple as possible, so I speak about a lot of possibilities here that I would include in the final implementation only once it is proven they are necessary.
 
 ## General
-* For the sake of simplicity and considering available time and purpose of the exercice, I have ignored implementation of:
+* For the sake of simplicity and considering available time and purpose of the exercise, I have ignored implementation of:
   * Input validation
   * Logging
   * Localization
   * Accessibility
   * Security
-* I also have ignored unit, integration and performance tests. I am specially ashamed for the unit tests part, but the learning curve (Angular and Clojure) was too steep so, I decided to leave them out of the equation.
+* I also have ignored unit, integration and performance tests. I am especially ashamed for the unit tests part, but the learning curve (Angular and Clojure) was too steep so I decided to leave them out.
 
 ## API
 I've decided to make a REST API because:
 * File system is a good fit for the REST protocol (folders and files being resources)
-* This kinf of application can benefit from inherent caching bound to REST (intermediate servers storing GET requests for example)
+* This kind of application can benefit from inherent caching bound to REST (intermediate servers storing GET requests for example)
 * The expected behavior can be clearly expressed in a HATEOAS way, as folders contain subfolders which can be expanded and files that sometimes can be previewed, and those actions are links embedded in the API responses. If the API ever changes the way it organizes endpoints, the client will hopefully not have to change as it will just continue to call the endpoints provided by the API.
 
 * Endpoints:
@@ -63,26 +58,27 @@ I've decided to make a REST API because:
     *     http://localhost:3000/preview?path=c:/AnyGivenFolder/AnyGivenTxtFile.txt
 
 > **Disclosure** 
-I'm aware this API is not compliant with REST principles. The resources of files and folders should be specified via the   URL and not in the query string parameter path. Unfortunately, my low level in Clojure in combination with lack of time made me take some shortcuts.
-Had it been possible, I would have made this url to get the contents of AnyGivenFolder:
+>I'm aware this API is not compliant with REST principles. The resources of files and folders should be specified via the URL and not in the query string parameter path. Unfortunately, my low level in Clojure in combination with lack of time made me take some shortcuts.
+Had it been possible, I would have made this URL to get the contents of AnyGivenFolder:
 http://localhost:3000/c/AnyGivenFolder
 And this one to retrieve a file (preview parameter would be optional, without it the URL would be used to retrieve the full file):
 http://localhost:3000/c/AnyGivenFolder/AnyGivenFile.txt?preview=true
+>I do not adhere to [JSON API](http://jsonapi.org/format/) standard, as HATEOAS links should be inside the links section of the response, not as plain fields. I also do not have a self section though.
 
 ## Data structures
 * Dir endpoint returns a list of JSONs. 
 All of them have at least path, name and directory (boolean, when true it is a directory - not really proud of this name, the mere fact it requires an explanation is a smell, but I adhered to the standard and used the same name as the Java property). 
-  * Directories have an extra property _dirUrl_, which provides the url where we can request a dir of the folder:
+  * Directories have an extra property _dirUrl_, which provides the URL where we can request a dir of the folder:
 
 ```json
 {
       "path": "c:/AnyGivenFolder/AnyGivenSubFolder",
-      "name": "dnis",
+      "name": "AnyGivenSubFolder",
       "directory": true,
       "dirUrl": "http://localhost:3000/dir?path=c:/AnyGivenFolder/AnyGivenSubFolder"
 }
 ```
-  * Previewable files have an extra property _previewUrl_. Again, it provides the url where we can request a preview of the file. Non previewable files just do not have the property.
+  * Previewable files have an extra property _previewUrl_. Again, it provides the URL where we can request a preview of the file. Non previewable files just do not have the property.
 
 ```json
 {
@@ -94,7 +90,7 @@ All of them have at least path, name and directory (boolean, when true it is a d
 ```
 
 ## SPA
-I've used Angular 4 to build the SPA application. I have very low experience with SPA frameworks and after a small tour, I decided to go for NG4. I liked the simplicity, the syntax and it just worked for the exercice at hand.
+I've used Angular 4 to build the SPA application. I have very low experience with SPA frameworks and after a small tour, I decided to go for NG4. I liked the simplicity, the syntax and it just worked for the exercise.
 
 The SPA is built around 4 major blocks:
 * _file-tree_ - A component to recursively display a file tree, allowing node expanding and collapsing. 
@@ -109,7 +105,7 @@ The SPA is built around 4 major blocks:
 * The HTML sucks. It is not responsive nor nice, I know it. I understand it is not the purpose of this exercice. If it were, I would move it to Bootstrap and apply some icons via CSS to make it nicer.
 
 ## Testing
-IMHO, I see development as a holistic activity, hence I consider testing as part of the development process. To properly test this App I could define this set of tests (note most of them would require input from the PO to determine the expected outcome. Also, some can be considered as negligible, depending on the criticity and context of the system being used):
+IMHO, I see development as a holistic activity, hence I consider testing as part of the development process. To properly test this App I could define this set of tests (some of them would require input from the PO to determine the expected outcome. Also, some can be considered as negligible, depending on the criticity and context of the system being used):
 * Empty root folder (so, nothing to render)
 * Folders with lots of files
 * Different drives
@@ -127,11 +123,11 @@ IMHO, I see development as a holistic activity, hence I consider testing as part
 Another thing worth testing is the compatibility matrix with different web browsers and devices (cell phones for example).
 In case API and clients are expected to run in different machines, we could also be checking combinations of OS, or try to mingle with time-zones for example.
 
-### Pending
+## Pending
 In  a real world project, several other things would be missing in the code and repository as it is nowadays:
 1. **Continuous Delivery/Continuous Integration** - The code to compile, build and run test and static code analysis (hopefully inside a Docker container) should be included in the repository, so every developer can checkout and start working anytime on any machine. Also, the CD pipeline could be included (or else stored in another repo).
 2. **Logging** - Logging information is a must to find out problems in production. As of now there's no logging.
-3. **Versioning** - I lately tend to avoid versioning when possible. I have different versions of my bianries but I do not expose versions of APIS, I prefer just to expose the latest version and try to make all my changes backward compatible. In case it is mandatory (selling API to customers who can't keep the update pace), then version management is a must, specially once you go into CD world to track the multiple versions of your code. In general I follow [semver](http://semver.org/) which is has been a good fit for most of the projects I've worked on. 
+3. **Versioning** - I lately tend to avoid versioning when possible. I have different versions of my binaries but I do not expose versions of APIs, I prefer just to expose the latest version and try to make all my changes backward compatible. In case it is mandatory (selling API to customers who can't update + breaking changes), then version management is a must. In general I follow [semver](http://semver.org/) which is has been a good fit for most of the projects I've worked on. 
 4. **Monitoring** - As of now there's no monitoring configured. In a real-world API having something like [NewRelic](https://newrelic.com/) or [app insights](https://azure.microsoft.com/en-us/services/application-insights/) is a must to keep track of your production state.
 5. **Exception management** - Current exception management is poor. In .Net I tend to use DI interceptors to manage exceptions and logging. Had no time to do it and prioritized other stuff and I have no clue how would I do that in Clojure but anyway, without that part it is not possible to go live.
 6. **Documentation** - If the application is to be consumed from the outside world or other colleagues from our company, then some kind of documentation is necessary, also input validation.
