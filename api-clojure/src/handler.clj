@@ -1,4 +1,4 @@
-(ns gmt-api.handler
+(ns handler
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [clojure.string :refer [ends-with?]]
