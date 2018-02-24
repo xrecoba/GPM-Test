@@ -1,7 +1,7 @@
-(ns gmt-api.handler-test
+(ns handler-test
   (:require [clojure.test :refer :all]
             [ring.mock.request :as mock]
-            [gmt-api.handler :refer :all]))
+            [handler :refer :all]))
 
 (deftest test-app
   (testing "main route"

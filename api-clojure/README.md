@@ -1,4 +1,4 @@
-# gmt-api
+# api-clojure
 
 FIXME
 
