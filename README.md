@@ -9,8 +9,6 @@ Features:
 * Text files can be previewed by clicking on them
 * Multiple instances of the application can be executed at the same time using different root node folders
 
-![Scheme][Resources/AppScreenshot.jpg]
-
 ## How to run the application
 Checkout repository and execute, in two different consoles:
 ```
@@ -44,11 +42,13 @@ The repository is pretty simple, it has 2 main folders, one for the Angular SPA 
 I firmly believe in keeping thins as simple as possible, so I speak about a lot of possibilities here that I would include in the final implementation only once it is proven they are necessary.
 
 ## General
-* No input validation
-* No logging
-* No localization
-* No accessibility
-* No security
+* For the sake of simplicity and considering available time and purpose of the exercice, I have ignored implementation of:
+  * Input validation
+  * Logging
+  * Localization
+  * Accessibility
+  * Security
+* I also have ignored unit, integration and performance tests. I am specially ashamed for the unit tests part, but the learning curve (Angular and Clojure) was too steep so, I decided to leave them out of the equation.
 
 ## API
 I've decided to make a REST API because:
@@ -76,20 +76,20 @@ All of them have at least path, name and directory (boolean, when true it is a d
 
 ```json
 {
-      "path": "c:\AnyGivenFolder\AnyGivenSubFolder",
+      "path": "c:/AnyGivenFolder/AnyGivenSubFolder",
       "name": "dnis",
       "directory": true,
-      "dirUrl": "http://localhost:3000/dir?path=c:\AnyGivenFolder\AnyGivenSubFolder"
+      "dirUrl": "http://localhost:3000/dir?path=c:/AnyGivenFolder/AnyGivenSubFolder"
 }
 ```
   * Previewable files have an extra property _previewUrl_. Again, it provides the url where we can request a preview of the file. Non previewable files just do not have the property.
 
 ```json
 {
-        "path": "c:\AnyGivenFolder\AnyGivenTxtFile.txt",
+        "path": "c:/AnyGivenFolder/AnyGivenTxtFile.txt",
         "name": "AnyGivenTxtFile.txt",
         "directory": false,
-        "previewUrl": "http://localhost:3000/preview?path=c:\AnyGivenFolder\AnyGivenTxtFile.txt"
+        "previewUrl": "http://localhost:3000/preview?path=c:/AnyGivenFolder/AnyGivenTxtFile.txt"
     }
 ```
 
