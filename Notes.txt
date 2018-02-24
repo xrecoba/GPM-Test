@@ -1,0 +1,65 @@
+# cheatsheet
+https://adambard.com/blog/clojure-in-15-minutes/
+
+Crear web server amb compojure:
+https://github.com/weavejester/compojure/wiki/Getting-Started
+
+Check for file existance
+https://clojuredocs.org/clojure.java.io/as-file
+(.exists (clojure.java.io/as-file "c:/ToDelete/Agencia.jpg"))
+
+# File and folder listing
+http://clojure-doc.org/articles/cookbooks/files_and_directories.html
+
+# Clojure JSON
+https://github.com/ring-clojure/ring-json
+
+"c:/ToDelete/Agencia.jpg"
+
+(defn isFile [path]
+  (.exists (io/as-file path)))
+  
+  (first(.list (io/file "c:/ToDelete")))
+  
+ 
+To start the web server: 
+	C:\Clojure\Projects\GPM-Test\gmt-api>lein ring server-headless
+
+To call it locally:
+	http://localhost:3000/
+	
+	
+	
+Aurelia:
+
+http://aurelia.io/docs/tutorials/creating-a-todo-app#the-indexhtml-page
+In a production app, you wouldn't use a transpiler to transform code on-the-fly in the browser like we're doing here. That would perform quite poorly and require you to distribute an entire transpiler with your app. We're using this technique here to enable you to get started without any tooling or build setup needed. In a later guide, we'll show you how to use the CLI to setup a production-ready project, complete with automatic application builds and bundling.
+
+http://www.syntaxsuccess.com/viewarticle/building-a-treeview-in-aurelia
+
+
+With Angular:
+https://angular.io/tutorial/toh-pt6
+C:\Clojure\Projects\GPM-Test\spa-angular>ng serve --open
+
+To share data:
+https://angularfirebase.com/lessons/sharing-data-between-angular-components-four-methods/
+https://angular.io/guide/component-interaction
+https://angular.io/guide/component-interaction#parent-and-children-communicate-via-a-service --> Used this one.
+
+http://www.syntaxsuccess.com/viewarticle/recursive-treeview-in-angular-2.0
+
+Clojurescript OM:
+https://github.com/omcljs/om/wiki/Quick-Start-%28om.next%29
+
+To run the server: 
+C:\Clojure\Projects\GPM-Test\spa-om>lein run -m clojure.main script/figwheel.clj
+
+Birch group tutorial, clojurescript:
+https://thebhwgroup.com/blog/2014/08/single-page-applications-clojure-couchdb
+https://thebhwgroup.com/blog/2014/09/react-angularjs-om-spa
+https://thebhwgroup.com/blog/2015/03/website-dev-clojure-reagent
+
+https://github.com/bhw/clojure-reagent
+lein template:
+https://github.com/reagent-project/reagent-template
