@@ -1,1 +1,0 @@
-web: java $JVM_OPTS -cp target/spa-reagent.jar clojure.main -m spa-reagent.server
