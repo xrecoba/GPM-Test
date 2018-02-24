@@ -9,35 +9,42 @@
             [ring.util.response :refer [response]]
             [ring.middleware.cors :refer [wrap-cors]]))
 
+(def ^:const localhost  "http://localhost:3000")
+
 (defn fileIsPreviewable [fileMap]
+  "Returns true if a `fileMap` can be previewed"
   (ends-with? (get fileMap :name) ".txt")
  )
 
-(defn ToFileInfo [file]
+(defn toFileInfo [file]
+  "Given a `file`, returns only the data of interest
+  Set of information returned depends on if the file is a directory or a file.
+  If it is a file, it also changes in case it can be previewed."
   (let [fileMap (bean file)
         filePath (get fileMap :path)
         commonData (select-keys fileMap [:path :name :directory])]
     (cond
       (fileIsPreviewable fileMap)
-        (assoc commonData :previewUrl (str "http://localhost:3000/preview?path=" filePath))
+      (assoc commonData :previewUrl (str localhost "/preview?path=" filePath))
       (.isDirectory file)
-        (assoc commonData :dirUrl (str "http://localhost:3000/dir?path=" filePath))
+      (assoc commonData :dirUrl (str localhost "/dir?path=" filePath))
       :else commonData
       )))
 
-(defn GetFiles [path]
-    (map ToFileInfo (.listFiles (io/file path)))
+(defn getFiles [path]
+  "Returns information about the files in a specific `path`"
+    (map toFileInfo (.listFiles (io/file path)))
 )
 
 (defn getFileLines [n filename]
+  "Returns the first `n` lines of a `filename`"
   (let [fileContents (with-open [rdr (io/reader filename)]
                        (doall (take n (line-seq rdr))))]
     {:file filename :content fileContents })
   )
 
 (defroutes app-routes
-           (GET "/" [] "Hello World")
-           (GET "/dir" [path] (wrap-json-response (fn [_] (response (GetFiles path)))))
+           (GET "/dir" [path] (wrap-json-response (fn [_] (response (getFiles path)))))
            (GET "/preview" [path]  (json-response (getFileLines 10 path)))
            (route/not-found "Not Found"))
 

@@ -3,12 +3,16 @@
             [ring.mock.request :as mock]
             [handler :refer :all]))
 
-(deftest test-app
-  (testing "main route"
-    (let [response (app (mock/request :get "/"))]
-      (is (= (:status response) 200))
-      (is (= (:body response) "Hello World"))))
+(deftest test-file-is-previewable
+  (testing "txt-file-is-previewable"
+    (let [response (fileIsPreviewable {:name "whatever.txt"})]
+      (is (= response true))))
 
-  (testing "not-found route"
-    (let [response (app (mock/request :get "/invalid"))]
-      (is (= (:status response) 404)))))
+  (testing "non-txt-file-is-not-previewable"
+    (let [response (fileIsPreviewable {:name "Whatever.noTxt"})]
+      (is (= response false))))
+
+  (testing "file-without-extension-is-not-previewable"
+    (let [response (fileIsPreviewable {:name "Whatever"})]
+      (is (= response false))))
+  )
