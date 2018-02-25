@@ -17,12 +17,13 @@ GPM-Test\spa-angular>ng serve --open
 ```
 Once both angular and clojure servers are running, open http://localhost:4200/.
 
-> It would have been nice to gift-wrap the application inside a docker container so you could just run it with a single command no matter the OS and system. Sorry I was short on time.
+> It would have been nice to gift-wrap the application inside a docker container (In reality a Docker compose, with one container for the API and the other for the client) so you could just run it with a single command no matter the OS and system. Sorry I was short on time.
 
 ## Known bugs
 * Some folders do not return dir info although I display them in the folder list ("Archivos de programa", hidden folders, ...)
 * Button to expand a folder appears even when folder is empty. Same happens for collapsing button.
 * File preview concatenates all file lines.
+* Requesting a non existing file or folder returns an empty http response with code 200. It should be 404.
 
 # Assumptions
 * I've considered _*.txt_ files as the leaf nodes representing text files
@@ -43,7 +44,7 @@ I firmly believe in keeping things as simple as possible, so I speak about a lot
   * Localization
   * Accessibility
   * Security
-* I also have ignored unit, integration and performance tests. I am especially ashamed for the unit tests part, but the learning curve (Angular and Clojure) was too steep so I decided to leave them out.
+* I also have ignored unit, integration and performance tests. I am especially ashamed for the unit tests part, but the learning curve (Angular and Clojure) was too steep so I decided to leave them out. I've just created 3 cljoure unit tests to validate a function which had no file dependencies. The other functions, except the routes and app definition, depend on JAVA files mocks, and I have found no elegant way to execute that code without relying on the file system (see [here](https://github.com/magnars/test-with-files) for example).
 
 ## API
 I've decided to make a REST API because:
@@ -107,6 +108,7 @@ The SPA is built around 4 major blocks:
 ## Testing
 IMHO, I see development as a holistic activity, hence I consider testing as part of the development process. To properly test this App I could define this set of tests (some of them would require input from the PO to determine the expected outcome. Also, some can be considered as negligible, depending on the criticity and context of the system being used):
 * Empty root folder (so, nothing to render)
+* Unexisting file and folder
 * Folders with lots of files
 * Different drives
 * Check it works with Virtual folders
@@ -124,7 +126,7 @@ Another thing worth testing is the compatibility matrix with different web brows
 In case API and clients are expected to run in different machines, we could also be checking combinations of OS, or try to mingle with time-zones for example.
 
 ## Pending
-In  a real world project, several other things would be missing in the code and repository as it is nowadays:
+In a real world project, several other things would be missing in the code and repository as it is nowadays:
 1. **Continuous Delivery/Continuous Integration** - The code to compile, build and run test and static code analysis (hopefully inside a Docker container) should be included in the repository, so every developer can checkout and start working anytime on any machine. Also, the CD pipeline could be included (or else stored in another repo).
 2. **Logging** - Logging information is a must to find out problems in production. As of now there's no logging.
 3. **Versioning** - I lately tend to avoid versioning when possible. I have different versions of my binaries but I do not expose versions of APIs, I prefer just to expose the latest version and try to make all my changes backward compatible. In case it is mandatory (selling API to customers who can't update + breaking changes), then version management is a must. In general I follow [semver](http://semver.org/) which is has been a good fit for most of the projects I've worked on. 
