@@ -9,22 +9,13 @@ export class NodeService {
 
   constructor(private http: HttpClient) { }
 
-  private nodesApiUrl = 'http://localhost:3000/dir';  // URL to web api
+  private nodesApiUrl = 'http://localhost:3000/';  // URL to web api
 
-  getNodes(): Observable<Node[]> {
-     return this.http.get<Node[]>(this.nodesApiUrl)
+  getNodes(path: string): Observable<Node[]> {
+     return this.http.get<Node[]>(this.nodesApiUrl + path)
   }
 
-  getHardCodedNodes(): Observable<Node[]> {
-    return of([
-      { path: "c:/AAAA/", name: "name.txt", type: "file", elements: [
-        { path: "c:/AAAA/Hello/", name: "name.txt", type: "file" },
-        { path: "c:/AAAA/Hello/", name: "familyName.txt", type: "file" }
-      ] },
-      { path: "c:/BBBB/Hello/", name: "familyName.txt", type: "file", elements: [
-        { path: "c:/BBBB/Hello/", name: "name.txt", type: "file" },
-        { path: "c:/BBBB/Hello/", name: "familyName.txt", type: "file" }
-      ] }
-      ]);
+  getNodeChilds(path: string): Observable<Node[]> {
+     return this.http.get<Node[]>(this.nodesApiUrl + path)
   }
 }
