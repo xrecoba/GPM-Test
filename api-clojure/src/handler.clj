@@ -16,7 +16,7 @@
   (ends-with? (get fileMap :name) ".txt")
  )
 
-(defn ToFileInfo [file]
+(defn toFileInfo [file]
   "Given a `file`, returns only the data of interest
   Set of information returned depends on if the file is a directory or a file.
   If it is a file, it also changes in case it can be previewed."
@@ -31,9 +31,9 @@
       :else commonData
       )))
 
-(defn GetFiles [path]
+(defn getFiles [path]
   "Returns information about the files in a specific `path`"
-    (map ToFileInfo (.listFiles (io/file path)))
+    (map toFileInfo (.listFiles (io/file path)))
 )
 
 (defn getFileLines [n filename]
@@ -44,7 +44,7 @@
   )
 
 (defroutes app-routes
-           (GET "/dir" [path] (wrap-json-response (fn [_] (response (GetFiles path)))))
+           (GET "/dir" [path] (wrap-json-response (fn [_] (response (getFiles path)))))
            (GET "/preview" [path]  (json-response (getFileLines 10 path)))
            (route/not-found "Not Found"))
 
