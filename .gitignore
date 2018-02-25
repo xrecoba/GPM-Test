@@ -11,3 +11,7 @@ pom.xml.asc
 .lein-plugins/
 .lein-failures
 .nrepl-port
+spa-om/spa-om.iml
+spa-om/.idea/
+spa-reagent/.idea/
+spa-reagent/spa-reagent.iml

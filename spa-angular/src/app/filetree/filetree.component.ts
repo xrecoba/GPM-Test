@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Node } from '../../node';
 import { NodeService } from '../node.service';
 
@@ -7,8 +7,10 @@ import { NodeService } from '../node.service';
   templateUrl: './filetree.component.html',
   styleUrls: ['./filetree.component.css']
 })
+
 export class FiletreeComponent implements OnInit {
 
+  @Input() path: string;
   nodes : Node[];  
   selectedNode: Node;
 
@@ -19,11 +21,21 @@ export class FiletreeComponent implements OnInit {
   }
 
 	onSelect(node: Node): void {
-  		this.selectedNode = node;
+      this.selectedNode = node;
+      node.isExpanded = !node.isExpanded;
+
+      if (node.isExpanded) {
+        this.getChildNodes(node);
+      }  		
 	}
 
   getNodes(): void {
-    this.nodeService.getNodes()
+    this.nodeService.getNodes("dir")
       .subscribe(nodes => this.nodes = nodes);    
+  }
+
+  getChildNodes(node: Node): void {
+    this.nodeService.getNodes("dir")
+      .subscribe(nodes => node.elements = nodes);    
   }
 }

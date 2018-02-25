@@ -3,8 +3,11 @@
   <li *ngFor="let node of nodes"  
   		[class.selected]="node === selectedNode"
   		(click)="onSelect(node)">
+    
     <span>{{node.path}}</span> {{node.name}}
+      <div *ngIf=node.isExpanded>
+          {{selectedNode.name}}
+          <app-filetree path="dir"></app-filetree>
+      </div>
   </li>
 </ul>
-
-<div *ngIf="selectedNode">{{selectedNode.name}}</div>
